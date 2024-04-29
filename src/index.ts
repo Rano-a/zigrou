@@ -31,6 +31,15 @@ client.on('interactionCreate', (interaction) => {
   if (interaction.commandName === 'hello') {
     interaction.reply('Hello world!');
   }
+  
+  if (interaction.commandName === 'sum') {
+    const num1 = interaction.options.get('first-number')!.value as number;
+    const num2 = interaction.options.get('second-number')!.value as number;
+    
+    if (num1 && num2 != undefined) {
+      interaction.reply(`The sum of the two numbers is: ${num1 + num2}`);      
+    }
+  }
 });
 
 /**
